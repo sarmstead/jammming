@@ -1,3 +1,6 @@
+## About Jammming
+Jamming is your interactive Spotify companion.The concept and framework was created by Codecademy. Completing this project is part of their Web Development career path.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
