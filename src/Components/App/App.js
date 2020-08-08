@@ -28,29 +28,40 @@ class App extends React.Component {
           id: 3
         }
       ],
-      playListName: 'Best Songs Ever',
-      playListTracks: [
+      playlistName: 'Best Songs Ever',
+      playlistTracks: [
         {
           name: 'Dare You to Move', 
           artist: 'Switchfoot', 
           album: 'Beautiful Letdown', 
-          id: 1
+          id: 4
         },
         {
           name: 'Beautiful Letdown', 
           artist: 'Switchfoot', 
           album: 'Beautiful Letdown',
-          id: 2
+          id: 5
         },
         {
           name: 'This Is Your Life', 
           artist: 'Switchfoot', 
           album: 'Beautiful Letdown',
-          id: 3
+          id: 6
         }
       ]
-    }
+    };
+    this.addTrack = this.addTrack.bind(this);
   }
+
+  addTrack(track) {
+    let existTracks = this.state.playlistTracks;
+    if (existTracks.find(savedTrack => savedTrack.id === track.id)) {
+      return;
+    } 
+    existTracks.push(track);
+    this.setState({ playlistTracks: existTracks });
+  }
+
   render() {
     return (
       <div>
@@ -58,8 +69,8 @@ class App extends React.Component {
         <div className="App">
           <SearchBar />
           <div className="App-playlist">
-            <SearchResults searchResults={this.state.searchResults} />
-            <Playlist playListName={this.state.playListName} playListTracks={this.state.playListTracks} />
+            <SearchResults searchResults={this.state.searchResults} onAdd={this.addTrack} />
+            <Playlist playlistName={this.state.playlistName} playlistTracks={this.state.playlistTracks} />
           </div>
         </div>
       </div>
