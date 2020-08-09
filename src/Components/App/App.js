@@ -9,53 +9,15 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchResults: [
-        {
-          name: 'Dare You to Move', 
-          artist: 'Switchfoot', 
-          album: 'Beautiful Letdown', 
-          id: 1
-        },
-        {
-          name: 'Beautiful Letdown', 
-          artist: 'Switchfoot', 
-          album: 'Beautiful Letdown',
-          id: 2
-        },
-        {
-          name: 'This Is Your Life', 
-          artist: 'Switchfoot', 
-          album: 'Beautiful Letdown',
-          id: 3
-        }
-      ],
+      searchResults: [],
       playlistName: 'Best Songs Ever',
-      playlistTracks: [
-        {
-          name: 'Dare You to Move', 
-          artist: 'Switchfoot', 
-          album: 'Beautiful Letdown', 
-          id: 4
-        },
-        {
-          name: 'Beautiful Letdown', 
-          artist: 'Switchfoot', 
-          album: 'Beautiful Letdown',
-          id: 5
-        },
-        {
-          name: 'This Is Your Life', 
-          artist: 'Switchfoot', 
-          album: 'Beautiful Letdown',
-          id: 6
-        }
-      ]
+      playlistTracks: []
     };
     this.addTrack = this.addTrack.bind(this);
     this.removeTrack = this.removeTrack.bind(this);
     this.updatePlaylistName = this.updatePlaylistName.bind(this);
     this.savePlaylist = this.savePlaylist.bind(this);
-    this.search = this.search.bind(props);
+    this.search = this.search.bind(this);
   }
 
   addTrack(track) {
@@ -79,6 +41,11 @@ class App extends React.Component {
 
   savePlaylist() {
     const trackURIs = this.state.playlistTracks.map(track => track.uri);
+    Spotify.savePlaylist(this.state.playlistName, trackURIs).then(() => {
+      this.setState({ 
+        playlistName: 'New Playlist', 
+        playlistTracks: [] });
+    })
   }
 
   search(term) {
