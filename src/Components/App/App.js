@@ -4,6 +4,8 @@ import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from '../SearchResults/SearchResults';
 import Playlist from '../Playlist/Playlist';
 import Spotify from '../../.util/Spotify';
+import Modal from '../Modal/Modal'
+import Test from '../../.util/Test';
 
 class App extends React.Component {
   constructor(props) {
@@ -11,7 +13,8 @@ class App extends React.Component {
     this.state = {
       searchResults: [],
       playlistName: 'Best Songs Ever',
-      playlistTracks: []
+      playlistTracks: [],
+      loggedIn: false
     };
     this.addTrack = this.addTrack.bind(this);
     this.removeTrack = this.removeTrack.bind(this);
@@ -54,11 +57,23 @@ class App extends React.Component {
     });
   }
 
+  componentDidMount() {
+    let loggedInStatus;
+    if (document.cookie.includes(true)) {
+      loggedInStatus = true;
+    } else {
+      document.cookie = "loggedIn=false";
+      loggedInStatus = false;
+    }
+    this.setState({ loggedIn: loggedInStatus });
+  }
+
   render() {
     return (
       <div>
         <h1>Ja<span className="highlight">mmm</span>ing</h1>
         <div className="App">
+          <Modal loggedInStatus={this.state.loggedIn} />
           <SearchBar onSearch={this.search} />
           <div className="App-playlist">
             <SearchResults searchResults={this.state.searchResults} onAdd={this.addTrack} />
