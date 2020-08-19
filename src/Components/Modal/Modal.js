@@ -3,14 +3,6 @@ import './Modal.css';
 import Spotify from '../../.util/Spotify';
 
 class Modal extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            loggedIn: false,
-        };
-        
-    }
-
     getAccessToken() {
         Spotify.getAccessToken();
     }
