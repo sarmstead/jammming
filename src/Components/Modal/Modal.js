@@ -1,6 +1,7 @@
 import React from 'react';
 import './Modal.css';
 import Spotify from '../../.util/Spotify';
+import {ReactComponent as Logo} from './jammming_purple.svg';
 
 class Modal extends React.Component {
     getAccessToken() {
@@ -13,7 +14,7 @@ class Modal extends React.Component {
         }
         return (
             <main>
-                <img src="./jammming_purple.svg" class="logo" alt="Jamming purple logo" />
+                <Logo class="logo" alt="Jamming purple logo" />
                 <p>Welcome to your interactive Spotify companion.</p> 
                 <p class="emphasis">Connect Jammming to your Spotify account to get started.</p>
                 <button onClick={this.getAccessToken}>Connect to Spotify</button>
