@@ -1,5 +1,80 @@
-.modal {
-    z-index: 999;
-    background: #000;
+html {
+    background: url(./jammming_background_2560x1440.svg) no-repeat center center;
+    background-size: cover;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 90vh;
+    justify-content: center;
+}
+
+p {
+    color: #010c3f;
+    text-align: center;
+    font-size: 1rem;
+    margin: 0 auto;
+    padding: 0 3rem;
+}
+
+button {
+    cursor: pointer;
+    width: 12rem;
+    padding: .77rem 0;
+    border-radius: 54px;
+    background-color: #6C41EC;
+    text-align: center;
+    font-size: .833rem;
+    transition: background-color .25s;
+    border: 0px;
     color: #fff;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin: 1.7rem auto 0 auto;
+}
+
+img {
+    width: 20rem;
+    margin: 0 auto 1.7rem auto;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    text-align: center;
+    background-color: #E2E2E2;
+    margin: auto;
+    padding: 0.5rem 3rem;
+}
+
+.emphasis {
+    font-weight: 600;
+}
+
+/* Smart phone and Tablet styles (portrait) */
+@media only screen and (min-device-width: 320px) and (max-device-width: 768px) and (orientation: portrait) {
+    html {
+        background: url(./jammming_background_768x1024.svg) no-repeat center center fixed;
+        background-size: cover;
+    }
+}
+
+/* Small smart phones (portrait) */
+@media only screen and (max-device-width: 320px) and (orientation: portrait) {
+    html {
+        background: url(./jammming_background_200x266.svg) no-repeat center center fixed;
+        background-size: cover;
+    }
+}
+
+/* iPhone X (portrait) */
+@media only screen and (width: 1125px) and (height: 2436px) and (orientation: portrait) {
+    html {
+        background: url(./jammming_background_1125x2436.svg) no-repeat center center fixed;
+        background-size: cover;
+    }
 }

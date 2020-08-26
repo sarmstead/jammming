@@ -12,11 +12,12 @@ class Modal extends React.Component {
             return null;
         }
         return (
-            <section className="modal">
-                <h1>Welcome!</h1>
-                <p>First things first ... let's get you connected to Spotify.</p>
-                <button onClick={this.getAccessToken}>Connect</button>
-            </section>
+            <main>
+                <img src="./jammming_purple.svg" class="logo" alt="Jamming purple logo" />
+                <p>Welcome to your interactive Spotify companion.</p> 
+                <p class="emphasis">Connect Jammming to your Spotify account to get started.</p>
+                <button onClick={this.getAccessToken}>Connect to Spotify</button>
+            </main>
         );
     }
 }
