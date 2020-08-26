@@ -69,11 +69,13 @@ class App extends React.Component {
   }
 
   render() {
+    if (this.state.loggedIn === false) {
+      return <Modal loggedInStatus={this.state.loggedIn} />;
+  }
     return (
       <div>
         <h1>Ja<span className="highlight">mmm</span>ing</h1>
         <div className="App">
-          <Modal loggedInStatus={this.state.loggedIn} />
           <SearchBar onSearch={this.search} />
           <div className="App-playlist">
             <SearchResults searchResults={this.state.searchResults} onAdd={this.addTrack} />
