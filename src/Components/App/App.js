@@ -5,7 +5,7 @@ import SearchResults from '../SearchResults/SearchResults';
 import Playlist from '../Playlist/Playlist';
 import Spotify from '../../.util/Spotify';
 import Modal from '../Modal/Modal'
-import Test from '../../.util/Test';
+import Footer from '../Footer/Footer';
 
 class App extends React.Component {
   constructor(props) {
@@ -70,8 +70,14 @@ class App extends React.Component {
 
   render() {
     if (this.state.loggedIn === false) {
-      return <Modal loggedInStatus={this.state.loggedIn} />;
-  }
+      return (
+        <div>
+          <Modal loggedInStatus={this.state.loggedIn} />
+          <Footer />
+        </div>
+          
+      );
+    }
     return (
       <div>
         <h1>Ja<span className="highlight">mmm</span>ing</h1>
@@ -82,6 +88,7 @@ class App extends React.Component {
             <Playlist playlistName={this.state.playlistName} playlistTracks={this.state.playlistTracks} onRemove={this.removeTrack} onNameChange={this.updatePlaylistName} onSave={this.savePlaylist} />
           </div>
         </div>
+        <Footer />
       </div>
     );
   }
