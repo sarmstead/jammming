@@ -14,6 +14,9 @@ class Modal extends React.Component {
     }
 
     render() {
+        if (this.props.loggedInStatus === true) {
+            return null;
+        }
         return (
             <main>
                 <Logo class="logo" alt="Jamming purple logo" style={logoStyle} />
