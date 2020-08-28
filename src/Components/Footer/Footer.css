@@ -6,5 +6,47 @@ footer {
     text-align: center;
     background-color: #E2E2E2;
     margin: auto;
-    padding: 0.5rem 3rem;
+    padding: 0.1rem 3rem;
 }
+
+a {
+    color: #010c3f;
+    font-weight: bold;
+    text-decoration: underline dotted;
+}
+
+footer small {
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
+
+.loggedInFooter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5vh;
+    text-align: center;
+    background-color: #010c3f;
+    margin: auto;
+    padding: 1rem 3rem;
+}
+
+.loggedInSmall {
+    font-size: 0.8rem;
+    color: #ffffff;
+}
+
+.loggedInSmall a {
+    color: #ffffff;
+    font-weight: bold;
+    text-decoration: underline dotted;
+}
+
+@media only screen and (max-width: 1020px) {
+    footer {
+        padding: 1rem 3rem;
+    }
+    .loggedInFooter {
+        padding: 1.7rem 3rem;
+    }
+  }
